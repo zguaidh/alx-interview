@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
-Pascal's Triangle 
+Pascal's Triangle
 """
+
+
 def pascal_triangle(n):
     """
     Pascal's Triangle
@@ -14,7 +16,7 @@ def pascal_triangle(n):
             C = 1
             ls = []
             for j in range(1, i+1):
-                ls.append(C)    
+                ls.append(C)
                 C = C * (i - j) // j
             nums.append(ls)
         return nums
