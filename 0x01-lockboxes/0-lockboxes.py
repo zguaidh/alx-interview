@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
 def canUnlockAll(boxes):
+'''This function determines if all the boxes can be unlocked'''
+
+
   n = len(boxes)
   unlocked = [False] * n
   unlocked[0] = True
@@ -14,3 +17,4 @@ def canUnlockAll(boxes):
         stack.append(key)
     
   return all(unlocked)
+
