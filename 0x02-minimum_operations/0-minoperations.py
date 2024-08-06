@@ -1,13 +1,16 @@
 #!/usr/bin/python3
-'''creates a function that takes n as an arguments and returns
-the number of operatiors required to print n characters'''
+
+"""creates a function that takes n as an arguments and returns.
+
+the number of operatiors required to print n characters
+"""
 
 
-def minOperations(n):
-    '''returns the minimum number of operations'''
+def minoperations(n):
+    """Return the minimum number of operations."""
     if n <= 1:
         return 0
-    
+
     operations = 0
     divisor = 2
 
@@ -17,3 +20,4 @@ def minOperations(n):
             n //= divisor
         divisor += 1
     return operations
+
