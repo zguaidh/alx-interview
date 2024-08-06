@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-"""creates a function that takes n as an arguments and returns.
+"""
+creates a function that takes n as an arguments and returns.
 
 the number of operatiors required to print n characters
 """
@@ -18,4 +19,3 @@ def minOperations(n) -> int:
             n //= divisor
         divisor += 1
     return operations
-
