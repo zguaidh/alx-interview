@@ -6,7 +6,7 @@ the number of operatiors required to print n characters
 """
 
 
-def minOperations(n):
+def minOperations(n) -> int:
     """Return the minimum number of operations."""
     if n <= 1:
         return 0
