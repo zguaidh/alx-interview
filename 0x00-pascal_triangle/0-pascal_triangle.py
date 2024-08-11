@@ -1,6 +1,28 @@
 #!/usr/bin/python3
 """
 Pascal's Triangle
+
+--First Try--
+
+def pascal_triangle(n):
+    if n <= 0:
+        return []
+    triangle =[]
+
+    for row in range(n):
+        ls = [1]
+        if row == 0:
+            triangle.append(ls)
+        elif row == 1:
+            ls.append(1)
+            triangle.append(ls)
+        else:
+            for i in range(len(triangle[row-1]) - 1):
+                new_elem = triangle[row-1][i] + triangle[row-1][i+1]
+                ls.append(new_elem)
+            ls.append(1)
+            triangle.append(ls)
+    return triangle
 """
 
 
