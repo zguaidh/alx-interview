@@ -39,6 +39,7 @@ def print_stats(status_codes: dict, total_size: int) -> None:
 
 def signal_handler(sig, frame):
     '''Handles Crtl+C signal to print stats before exiting'''
+    print_stats(status_codes, total_size)
     sys.exit(0)
 
 
@@ -60,6 +61,7 @@ try:
                 line_count = 0
 
 except (KeyboardInterrupt, EOFError):
+    print_stats(status_codes, total_size)
     sys.exit(0)
 
 print_stats(status_codes, total_size)
