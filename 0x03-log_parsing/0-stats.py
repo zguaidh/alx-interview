@@ -39,7 +39,6 @@ def print_stats(status_codes: dict, total_size: int) -> None:
 
 def signal_handler(sig, frame):
     '''Handles Crtl+C signal to print stats before exiting'''
-    print_stats(status_codes, total_size)
     sys.exit(0)
 
 
@@ -59,3 +58,5 @@ for line in sys.stdin:
         if line_count == 10:
             print_stats(status_codes, total_size)
             line_count = 0
+
+print_stats(status_codes, total_size)
