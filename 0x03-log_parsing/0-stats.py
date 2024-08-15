@@ -29,7 +29,7 @@ log_pattern = re.compile(
 )
 
 
-def print_stats(status_codes: dict, file_size: int) -> None:
+def print_stats(status_codes: dict, total_size: int) -> None:
     '''Prints the accumulated file size and counts of status codes'''
     print("File size:", total_size)
     for code in sorted(status_codes.keys()):
