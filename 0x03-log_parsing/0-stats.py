@@ -45,19 +45,19 @@ def signal_handler(sig, frame):
 
 signal.signal(signal.SIGINT, signal_handler)
 
-def main:
-    for line in sys.stdin:
-        match = log_pattern.match(line)
-        if log_pattern.match(line):
-            file_size = int(match.group('file_size'))
-            code = match.group('status_code')
-            total_size += file_size
-            if code in status_codes:
-                status_codes[code] += 1
 
-            line_count += 1
-            if line_count == 10:
-                print_stats(status_codes, total_size)
-                line_count = 0
+for line in sys.stdin:
+    match = log_pattern.match(line)
+    if match:
+        file_size = int(match.group('file_size'))
+        code = match.group('status_code')
+        total_size += file_size
+        if code in status_codes:
+            status_codes[code] += 1
+
+        line_count += 1
+        if line_count == 10:
+            print_stats(status_codes, total_size)
+            line_count = 0
 
 print_stats(status_codes, total_size)
