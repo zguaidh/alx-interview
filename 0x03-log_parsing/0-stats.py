@@ -45,7 +45,7 @@ def signal_handler(sig, frame):
 
 signal.signal(signal.SIGINT, signal_handler)
 
-try:
+def main:
     for line in sys.stdin:
         match = log_pattern.match(line)
         if log_pattern.match(line):
@@ -59,8 +59,6 @@ try:
             if line_count == 10:
                 print_stats(status_codes, total_size)
                 line_count = 0
-except EOFError:
-    print_stats(status_codes, total_size)
-    sys.exit(0)
 
-print_stats(status_codes, total_size)
+if __name__ == '__main__':
+    main()
