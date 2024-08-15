@@ -50,7 +50,8 @@ for line in sys.stdin:
         file_size = int(match.group('file_size'))
         code = match.group('status_code')
         total_size += file_size
-        status_codes[code] = status_codes.get(code, 0) + 1
+        if code in status_codes:
+            status_codes[code] += 1
 
         line_count += 1
         if line_count == 10:
