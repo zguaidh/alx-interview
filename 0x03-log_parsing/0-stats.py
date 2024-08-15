@@ -34,3 +34,4 @@ for line in sys.stdin:
 print("File size:", total_size)
 for code in sorted(status_codes.keys()):
     print(f"{code}: {status_codes[code]}")
+
