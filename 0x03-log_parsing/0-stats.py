@@ -39,13 +39,11 @@ def print_stats(status_codes: dict, total_size: int) -> None:
 
 def signal_handler(sig, frame):
     '''Handles Crtl+C signal to print stats before exiting'''
-    print_stats()
     sys.exit(0)
 
 
 signal.signal(signal.SIGINT, signal_handler)
 
-print_stats(status_codes, total_size)
 for line in sys.stdin:
     match = log_pattern.match(line)
     if match:
