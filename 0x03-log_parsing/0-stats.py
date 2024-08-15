@@ -32,7 +32,7 @@ log_pattern = re.compile(
 def print_stats(status_codes: dict, total_size: int) -> None:
     '''Prints the accumulated file size and counts of status codes'''
     print("File size:", total_size)
-    for code in sorted(status_codes.keys()):
+    for code in status_codes.keys():
         if status_codes[code] > 0:
             print(f"{code}: {status_codes[code]}")
 
