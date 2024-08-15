@@ -10,7 +10,16 @@ import sys
 
 total_size = 0
 line_count = 0
-status_codes = {}
+status_codes = {
+    '200': 0,
+    '301': 0,
+    '400': 0,
+    '401': 0,
+    '403': 0,
+    '404': 0,
+    '405': 0,
+    '500': 0
+}
 
 
 log_pattern = re.compile(
@@ -23,8 +32,9 @@ log_pattern = re.compile(
 def print_stats():
     '''Prints the accumulated file size and counts of status codes'''
     print("File size:", total_size)
-    for code in sorted(status_codes.keys()):
-        print(f"{code}: {status_codes[code]}")
+    for code in status_codes.keys():
+        if status_codes[code] > 0:
+            print(f"{code}: {status_codes[code]}")
 
 
 def signal_handler(sig, frame):
@@ -37,12 +47,13 @@ signal.signal(signal.SIGINT, signal_handler)
 
 for line in sys.stdin:
     if log_pattern.match(line):
-        parts = line.split()
-        status_code = parts[-2]
-        try:
-            file_size = int(parts[-1])
-            total_size += file_size
-            status_codes[status_code] = status_codes.get(status_code, 0) + 1
-        except (ValueError, IndexError):
-            continue
-        print_stats()
+        file_size = int(match.group('file_size'))
+        status_code = match.group('status_code')
+        total_size += file_size
+        status_codes[code] = status_codes.get(code, 0) + 1
+
+        line_count += 1
+        if line_count == 10:
+            print_stats()
+
+print_stats()
