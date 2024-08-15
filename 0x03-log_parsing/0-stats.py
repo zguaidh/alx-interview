@@ -60,5 +60,4 @@ def main:
                 print_stats(status_codes, total_size)
                 line_count = 0
 
-if __name__ == '__main__':
-    main()
+print_stats(status_codes, total_size)
