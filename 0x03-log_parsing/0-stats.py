@@ -32,7 +32,7 @@ log_pattern = re.compile(
 def print_stats():
     '''Prints the accumulated file size and counts of status codes'''
     print("File size:", total_size)
-    for code in status_codes.keys():
+    for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print(f"{code}: {status_codes[code]}")
 
@@ -48,7 +48,7 @@ signal.signal(signal.SIGINT, signal_handler)
 for line in sys.stdin:
     if log_pattern.match(line):
         file_size = int(match.group('file_size'))
-        status_code = match.group('status_code')
+        code = match.group('status_code')
         total_size += file_size
         status_codes[code] = status_codes.get(code, 0) + 1
 
