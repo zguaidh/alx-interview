@@ -46,6 +46,7 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 for line in sys.stdin:
+    match = log_pattern.match(line)
     if log_pattern.match(line):
         file_size = int(match.group('file_size'))
         code = match.group('status_code')
