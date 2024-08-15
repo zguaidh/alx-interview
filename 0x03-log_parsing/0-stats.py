@@ -17,7 +17,7 @@ def print_stats():
     '''Prints the accumulated file size and counts of status codes'''
     print("File size:", total_size)
     for code in sorted(status_codes.keys()):
-        print(f"{code}: {status_codes[code]}")
+        print(f"{status_code}: {status_codes[status_code]}")
 
 
 def signal_handler(sig, frame):
