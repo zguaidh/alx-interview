@@ -49,7 +49,7 @@ def main():
     if N < 4:
         print("N must be at least 4")
         sys.exit(1)
-    
+ 
     board = [[0] * N for _ in range(N)]
     solve_nqueens(board, 0, N)
 
