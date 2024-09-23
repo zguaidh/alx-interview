@@ -22,9 +22,7 @@ def makeChange(coins, total):
         coins_count += coin_count
         remainder -= coin_count * coin
 
-
     if remainder > 0:
         return -1
 
     return coins_count
-
